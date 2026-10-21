@@ -1,0 +1,96 @@
+<svg width="100%" height="320" viewBox="0 0 1200 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .bg { fill: #0a0f18; }
+    .window-header { fill: #111927; }
+    .dot-red { fill: #ff5f56; }
+    .dot-yellow { fill: #ffbd2e; }
+    .dot-green { fill: #27c93f; }
+    .title { font-family: 'Courier New', Courier, monospace; fill: #6b7280; font-size: 13px; }
+    .prompt { font-family: 'Courier New', Courier, monospace; fill: #00d4ff; font-size: 15px; font-weight: bold; }
+    .command { font-family: 'Courier New', Courier, monospace; fill: #e2e8f0; font-size: 15px; }
+    .output-green { font-family: 'Courier New', Courier, monospace; fill: #00ff41; font-size: 14px; }
+    .output-cyan { font-family: 'Courier New', Courier, monospace; fill: #00d4ff; font-size: 14px; }
+    .output-dim { font-family: 'Courier New', Courier, monospace; fill: #4a5568; font-size: 13px; }
+    .output-yellow { font-family: 'Courier New', Courier, monospace; fill: #ffbd2e; font-size: 14px; }
+    .ascii { font-family: 'Courier New', Courier, monospace; fill: #00ff41; font-size: 11px; opacity: 0.6; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    @keyframes pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.8; } }
+    @keyframes scanline { 0% { transform: translateY(-320px); } 100% { transform: translateY(320px); } }
+    .cursor { animation: blink 1s step-end infinite; fill: #00ff41; }
+    .glow-dot { animation: pulse 2s ease-in-out infinite; }
+    .scanline { animation: scanline 4s linear infinite; opacity: 0.03; }
+  </style>
+
+  <!-- Terminal Background -->
+  <rect width="1200" height="320" rx="10" class="bg" />
+  
+  <!-- Scanline effect -->
+  <rect width="1200" height="2" y="0" fill="#00ff41" class="scanline" />
+  
+  <!-- Subtle grid pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#00ff41" stroke-width="0.3" opacity="0.08"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="320" fill="url(#grid)" rx="10"/>
+
+  <!-- Window Title Bar -->
+  <rect width="1200" height="38" rx="10" class="window-header" />
+  <rect y="28" width="1200" height="10" class="window-header" />
+
+  <!-- Window Controls -->
+  <circle cx="24" cy="19" r="6" class="dot-red" />
+  <circle cx="44" cy="19" r="6" class="dot-yellow" />
+  <circle cx="64" cy="19" r="6" class="dot-green" />
+  
+  <!-- Window Title -->
+  <text x="600" y="24" text-anchor="middle" class="title">root@ahmed-akhridi:~/cybersecurity — zsh — 120×40</text>
+
+  <!-- Status indicator -->
+  <circle cx="1150" cy="19" r="4" fill="#00ff41" class="glow-dot"/>
+  <text x="1130" y="23" text-anchor="end" class="output-dim">ONLINE</text>
+
+  <!-- Line 1: whoami -->
+  <text x="30" y="68" class="prompt">root@ahmed:~$</text>
+  <text x="170" y="68" class="command">cat /etc/motd</text>
+
+  <!-- Line 2-3: ASCII name banner -->
+  <text x="30" y="93" class="output-green"> █████╗ ██╗  ██╗██████╗ ██╗██████╗ ██╗</text>
+  <text x="30" y="108" class="output-green">██╔══██╗██║ ██╔╝██╔══██╗██║██╔══██╗██║</text>
+  <text x="30" y="123" class="output-green">███████║█████╔╝ ██████╔╝██║██║  ██║██║</text>
+  <text x="30" y="138" class="output-green">██╔══██║██╔═██╗ ██╔══██╗██║██║  ██║██║</text>
+  <text x="30" y="153" class="output-green">██║  ██║██║  ██╗██║  ██║██║██████╔╝██║</text>
+  <text x="30" y="168" class="output-green">╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═════╝ ╚═╝</text>
+
+  <!-- Separator -->
+  <text x="30" y="190" class="output-dim">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</text>
+
+  <!-- Info lines -->
+  <text x="30" y="212" class="output-cyan">  ╠══ DESIGNATION:  </text>
+  <text x="230" y="212" class="command">Ahmed Akhridi — Cybersecurity Engineer</text>
+
+  <text x="30" y="232" class="output-cyan">  ╠══ AFFILIATION:  </text>
+  <text x="230" y="232" class="command">UIR — 5th Year Engineering Cycle</text>
+
+  <text x="30" y="252" class="output-cyan">  ╠══ CLEARANCE:    </text>
+  <text x="230" y="252" class="output-yellow">Blue Team ⬥ Offensive Security ⬥ Cloud Architecture ⬥ AI/ML</text>
+  
+  <text x="30" y="272" class="output-cyan">  ╚══ STATUS:       </text>
+  <text x="230" y="272" class="output-green">ACTIVE — Seeking PFE / Internship Opportunities 2027</text>
+
+  <!-- Bottom prompt -->
+  <text x="30" y="303" class="prompt">root@ahmed:~$</text>
+  <text x="170" y="303" class="command">./deploy_skills --target=all</text>
+  
+  <!-- Blinking cursor -->
+  <rect x="432" y="290" width="9" height="16" rx="1" class="cursor" />
+
+  <!-- Right side decorative hex -->
+  <text x="900" y="93" class="ascii">╔═══════════════════╗</text>
+  <text x="900" y="108" class="ascii">║  THREAT LEVEL: 0  ║</text>
+  <text x="900" y="123" class="ascii">║  SHIELD:  ACTIVE  ║</text>
+  <text x="900" y="138" class="ascii">║  PACKETS: OK      ║</text>
+  <text x="900" y="153" class="ascii">║  FIREWALL: UP     ║</text>
+  <text x="900" y="168" class="ascii">╚═══════════════════╝</text>
+</svg>
